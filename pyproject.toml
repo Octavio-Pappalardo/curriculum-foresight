@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "curriculum-foresight"
+version = "0.1.0"
+description =  "LLM-informed curriculum learning for reinforcement learning."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "jax[cuda12]",
+    "flax",
+    "distrax",
+    "optax",
+    "craftax==1.6.1",
+    "numpy",
+]
+
+[project.optional-dependencies]
+embeddings = [
+    "sentence-transformers",
+    "torch",
+]
+graphs = [
+    "google-genai",
+    "pydantic",
+    "python-dotenv",
+    "tqdm",
+]
+wandb = [
+    "wandb",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
